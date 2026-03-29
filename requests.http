@@ -1,0 +1,66 @@
+### Health checks
+GET http://localhost:3001/health
+
+### Criar produto
+POST http://localhost:3001/products
+Content-Type: application/json
+
+{
+  "name": "Smartphone X",
+  "description": "128GB",
+  "price": 800,
+  "sku": "PHONE-X-128"
+}
+
+### Criar usuario
+POST http://localhost:3002/users
+Content-Type: application/json
+
+{
+  "name": "Jean",
+  "email": "jean@example.com"
+}
+
+### Criar/atualizar estoque inicial
+POST http://localhost:3004/inventory
+Content-Type: application/json
+
+{
+  "productId": "{{productId}}",
+  "quantity": 10
+}
+
+### Consultar estoque
+GET http://localhost:3004/inventory/{{productId}}
+
+### Criar pedido (sucesso)
+POST http://localhost:3003/orders
+Content-Type: application/json
+
+{
+  "userId": "{{userId}}",
+  "items": [
+    {
+      "productId": "{{productId}}",
+      "quantity": 1
+    }
+  ]
+}
+
+### Criar pedido (falha de pagamento forcada)
+POST http://localhost:3003/orders
+Content-Type: application/json
+
+{
+  "userId": "{{userId}}",
+  "items": [
+    {
+      "productId": "{{productId}}",
+      "quantity": 1
+    }
+  ],
+  "forcePaymentStatus": "RECUSADO"
+}
+
+### Consultar pedido
+GET http://localhost:3003/orders/{{orderId}}

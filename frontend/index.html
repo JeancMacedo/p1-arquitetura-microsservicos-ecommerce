@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P1 Microsservicos - E-commerce</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>Controle de Microsservicos E-commerce</h1>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Catalogo</h2>
+          <button id="btnLoadProducts">Listar Produtos</button>
+          <ul id="productsList" class="list"></ul>
+        </article>
+
+        <article class="card">
+          <h2>Usuario</h2>
+          <form id="userForm" class="form">
+            <input id="userName" placeholder="Nome" required />
+            <input id="userEmail" placeholder="Email" required type="email" />
+            <button type="submit">Criar Usuario</button>
+          </form>
+          <p id="userResult" class="result"></p>
+        </article>
+
+        <article class="card">
+          <h2>Estoque</h2>
+          <form id="stockForm" class="form">
+            <input id="stockProductId" placeholder="Product ID" required />
+            <input id="stockQuantity" placeholder="Quantidade" required type="number" min="0" />
+            <button type="submit">Salvar Estoque</button>
+          </form>
+          <p id="stockResult" class="result"></p>
+        </article>
+
+        <article class="card">
+          <h2>Pedido</h2>
+          <form id="orderForm" class="form">
+            <input id="orderUserId" placeholder="User ID" required />
+            <input id="orderProductId" placeholder="Product ID" required />
+            <input id="orderQuantity" placeholder="Quantidade" required type="number" min="1" />
+            <select id="forcePaymentStatus">
+              <option value="">Pagamento normal</option>
+              <option value="APROVADO">Forcar APROVADO</option>
+              <option value="RECUSADO">Forcar RECUSADO</option>
+            </select>
+            <button type="submit">Criar Pedido</button>
+          </form>
+          <p id="orderResult" class="result"></p>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
